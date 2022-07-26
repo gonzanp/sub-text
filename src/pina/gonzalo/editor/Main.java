@@ -5,16 +5,16 @@ import javax.swing.*;
 
 public class Main {
 	public static void main(String [] args) {
-		Window window = new Window();
+		Frame frame = new Frame();
 		
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
 	}
 
 }
  
-class Window extends  JFrame{
-	public Window() {
+class Frame extends  JFrame{
+	public Frame() {
 		setBounds(300,300,300,300);
 		setTitle("Sub text");
 		add(new Panel());
@@ -25,7 +25,31 @@ class Window extends  JFrame{
 
 class Panel extends JPanel{
 	public Panel() {
-
+		
+		///---------------------------Text Area-----------------------------------
+		tPane = new JTabbedPane();
+		
+		
+		
+		///-----------------------------------------------------------------------
+		panelCreator();
+		
+		add(tPane);
 	}
 	
+	public void panelCreator() {
+		window = new JPanel();
+		textArea = new JTextPane();
+		
+		window.add(textArea);
+		tPane.addTab("title", window);
+	}
+	
+	
+	
+	
+	
+	private JTabbedPane tPane;
+	private JPanel window;
+	private JTextPane textArea;
 }
